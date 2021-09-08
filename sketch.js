@@ -1,51 +1,51 @@
-let song1;
-let song2;
-let song3;
-let song4;
+let xpos = 0;
+let ypos = 350;
 
 function setup() {
-  song1 = loadSound('a.mp3');
-  song2 = loadSound('b.mp3');
-  song3 = loadSound('c.mp3');
-  song4 = loadSound('d.mp3');
   createCanvas(400, 400);
   noStroke();
+  noLoop();
+
 }
 
+
+//loop 
 function draw() {
-   background(220);
-
-  
-  if(keyIsPressed==true) {
-   if(keyCode==49) {
-      ellipse(80, 200, 60, 60);
-      song1.play();
-   }
-   
-  else if(keyCode==50) {
-      ellipse(160, 200, 60, 60); 
-       song2.play();
-    }
-    
-  else if(keyCode==51) {
-      ellipse(240, 200, 60, 60); 
-      song3.play();
-  }  
-  
-  else if(keyCode==52) {
-      ellipse(320, 200, 60, 60);
-      song4.play(); 
-       }    
-
-  else {
-     text("1,2,3,4 아닙니다. 다시눌려주세요", 200, 30);
-     song1.stop();  
-     song2.stop();
-     song3.stop();
-     song4.stop(); 
-    
-  }  
-    
+  background(220);
+  fill(0);
+ 
+  rect(xpos, ypos, 50, 50);  // x좌표 
 }
 
+
+function keyPressed() {
+   loop();
+  
+   if(keyCode===RIGHT_ARROW)
+  {
+    xpos = xpos + 10;
+    
+  } 
+  
+  else if(keyCode===LEFT_ARROW )  {
+           
+           xpos = xpos - 10;
+            
+   }
+  
+   else if(keyCode===UP_ARROW )  {
+           
+           ypos = ypos - 10;
+            
+   }
+  
+  
+   else if(keyCode===DOWN_ARROW )  {
+           
+           ypos = ypos + 10;
+            
+   }
+  
+  
+  
 }
